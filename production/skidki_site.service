@@ -1,0 +1,16 @@
+[Unit]
+Description=uWSGI instance to serve 'skidki_site' project
+After=network.target
+
+[Service]
+User=olegvg
+Group=www-data
+WorkingDirectory=/opt/apps/skidki_site/production
+ExecStart=/opt/pyenv/versions/skidki_site/bin/uwsgi --yaml uwsgi_config.yml
+Restart=always
+KillMode=process
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
+Alias=skidkisite.service

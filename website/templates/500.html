@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% from 'macroses.html' import city_text %}
+{% block main_row %}
+
+  <div class="col-lg-8 col-md-7 col-sm-12">
+    <div class="col-lg-12 col-sm-12">
+      <span class="flat-title">Авария! Мы уже работаем над устранением.</span>
+    </div>
+  </div>
+{% endblock %}
+
+{% block breadcrumb %}
+  <li><a href="{{ url_for('base.root') }}" class="fa fa-home"></a></li>
+{% endblock %}

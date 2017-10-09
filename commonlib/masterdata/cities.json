@@ -1,0 +1,62 @@
+{"_id":{"$oid":"57b6361098d607bb0ccfe2a8"},"name":"Елино","name_slugified":"elino","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2a9"},"name":"Великий Новгород","name_slugified":"velikij-novgorod","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2aa"},"name":"Новочеркасск","name_slugified":"novocherkassk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2ab"},"name":"Орск","name_slugified":"orsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2ac"},"name":"Череповец","name_slugified":"cherepovets","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2ad"},"name":"Самара","name_slugified":"samara","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2ae"},"name":"Энгельс","name_slugified":"engels","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2af"},"name":"Волгоград","name_slugified":"volgograd","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2b0"},"name":"Белгород","name_slugified":"belgorod","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2b1"},"name":"Новосибирск","name_slugified":"novosibirsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2b2"},"name":"Оренбург","name_slugified":"orenburg","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2b3"},"name":"Санкт-Петербург","name_slugified":"spb","show_order":2}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2b4"},"name":"Ижевск","name_slugified":"izhevsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2b5"},"name":"Иваново","name_slugified":"ivanovo","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2b6"},"name":"Москва","name_slugified":"moskva","show_order":1}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2b7"},"name":"Тула","name_slugified":"tula","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2b8"},"name":"Ростов","name_slugified":"rostov","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2b9"},"name":"Рязань","name_slugified":"rjazan","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2ba"},"name":"Калуга","name_slugified":"kaluga","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2bb"},"name":"Набережные Челны","name_slugified":"naberezhnye-chelny","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2bc"},"name":"Альметьевск","name_slugified":"almetevsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2bd"},"name":"Ярославль","name_slugified":"jaroslavl","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2be"},"name":"Новороссийск","name_slugified":"novorossijsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2bf"},"name":"Ульяновск","name_slugified":"uljanovsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2c0"},"name":"Пермь","name_slugified":"perm","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2c1"},"name":"Таганрог","name_slugified":"taganrog","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2c2"},"name":"Йошкар-Ола","name_slugified":"joshkar-ola","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2c3"},"name":"Петрозаводск","name_slugified":"petrozavodsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2c4"},"name":"Железнодорожный","name_slugified":"zheleznodorozhnyj","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2c5"},"name":"Нижнекамск","name_slugified":"nizhnekamsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2c6"},"name":"Смоленск","name_slugified":"smolensk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2c7"},"name":"Тольятти","name_slugified":"toljatti","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2c8"},"name":"Краснодар","name_slugified":"krasnodar","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2c9"},"name":"Грозный","name_slugified":"groznyj","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2ca"},"name":"Армавир","name_slugified":"armavir","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2cb"},"name":"Истра","name_slugified":"istra","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2cc"},"name":"Липецк","name_slugified":"lipetsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2cd"},"name":"Псков","name_slugified":"pskov","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2ce"},"name":"Уфа","name_slugified":"ufa","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2cf"},"name":"Мурманск","name_slugified":"murmansk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2d0"},"name":"Ставрополь","name_slugified":"stavropol","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2d1"},"name":"Балаково","name_slugified":"balakovo","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2d2"},"name":"Нижний Новгород","name_slugified":"nizhnij-novgorod","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2d3"},"name":"Нижний Тагил","name_slugified":"nizhnij-tagil","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2d4"},"name":"Брянск","name_slugified":"brjansk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2d5"},"name":"Пенза","name_slugified":"penza","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2d6"},"name":"Орел","name_slugified":"orel","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2d7"},"name":"Магнитогорск","name_slugified":"magnitogorsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2d8"},"name":"Саранск","name_slugified":"saransk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2d9"},"name":"Волжский","name_slugified":"volzhskij","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2da"},"name":"Владимир","name_slugified":"vladimir","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2db"},"name":"Димитровград","name_slugified":"dimitrovgrad","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2dc"},"name":"Сыктывкар","name_slugified":"syktyvkar","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2dd"},"name":"Тверь","name_slugified":"tver","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2de"},"name":"Железноводск","name_slugified":"zheleznovodsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2df"},"name":"Вологда","name_slugified":"vologda","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2e0"},"name":"Воронеж","name_slugified":"voronezh","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2e1"},"name":"Астрахань","name_slugified":"astrahan","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2e2"},"name":"Челябинск","name_slugified":"cheljabinsk","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2e3"},"name":"Сергиев Посад","name_slugified":"sergiev-posad","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2e4"},"name":"Саратов","name_slugified":"saratov","show_order":10000}
+{"_id":{"$oid":"57b6361098d607bb0ccfe2e5"},"name":"Чебоксары","name_slugified":"cheboksary","show_order":10000}

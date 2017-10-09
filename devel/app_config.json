@@ -1,0 +1,19 @@
+{
+  "DEBUG": true,
+  "BABEL_DEFAULT_LOCALE": "ru",
+  "BABEL_DEFAULT_TIMEZONE": "Europe/Moscow",
+  "SECRET_KEY": "BswrAEWplJEmExmaYkV9dJkwZXhcesdex5ALHZfEAOcLz8SoEEMVFfIlD+CyTgTeM1VgFHF44g24E2jFwSNQd6sINvCCCB",
+  "REMEMBER_COOKIE_NAME": "SkidkaSkidokDevel",
+  "SESSION_PROTECTION": "basic",
+  "MONGODB_SETTINGS": {
+    "host": "127.0.0.1",
+    "port": "",
+    "username": "",
+    "password": "",
+    "db": "skidki"
+  },
+  "UPLOADER": {
+    "network_logo_width": 350,
+    "catalog_page_width": 900
+  }
+}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% from 'macroses.html' import small_network_pic_n_text %}
+{% block main_row %}
+  {% for item in network_objs %}
+    {{ small_network_pic_n_text(
+      url_for('base.net_image', net_name_slugified=item.name_slugified),
+      url_for(
+          'base.catalogue',
+          net_name_slugified=item.name_slugified,
+          city_name_slugified=city.name_slugified
+      ),
+      item)
+    }}
+  {% endfor %}
+{% endblock %}
+
+{% block head_description -%}
+  {{ network_objs|map(attribute='name')|join(', ') }} в городе {{ city.name }}
+{%- endblock %}
+{% block head_keywords -%}
+  {{ network_objs|map(attribute='name')|join(', ') }}, {{ city.name }}
+{%- endblock %}
+{% block head_title -%}
+  {{ network_objs|map(attribute='name')|join(', ') }} в городе {{ city.name }}
+{%- endblock %}
+
+
+{% block breadcrumb %}
+  <li><a href="{{ url_for('base.root') }}" class="fa fa-home"></a></li>
+  <li><a href="{{ url_for('base.cities') }}">ГОРОДА</a></li>
+  <li class="active">{{ city.name|upper }}</li>
+{% endblock %}

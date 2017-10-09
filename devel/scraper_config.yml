@@ -1,0 +1,38 @@
+scraper:
+  simultaneous_requests: 5
+  request_timeout: 30
+#  proxies:
+#    - http://127.0.0.1:7999
+  mongo:
+#    uri: mongodb://scraper:1qazxsw2@localhost:27017/
+    uri: mongodb://localhost:27017/skidki
+    username:
+    password:
+  custom_headers:
+    User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36
+    Accept-Language: en-US,en;q=0.8,ru;q=0.6
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    Accept-Encoding: gzip, deflate, sdch
+  logger:
+    level: 10 # DEBUG level, see https://docs.python.org/2/library/logging.html#levels
+#    level: 20 # INFO level
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  scrapers:
+    lenta_com:
+      debug: false
+      base_url: http://lenta.com
+      name: Лента
+      name_slugified: lenta
+      logo_path: ./scraper/lenta_logo_large.png
+      logo_width: 700
+      page_width: 900
+      description: <b>«Лента»</b> — одна из крупнейших и динамично развивающихся сетей розничной торговли в России. Основанная в 1993 году в Санкт-Петербурге, компания на протяжении 20-ти лет является одним из лидеров российского ритейла. Гипермаркеты Лента предлагают покупателям товары, цены на которые ниже среднерыночных не менее чем на 5%. В каждом гипермаркете «Лента» вы можете приобрести карту покупателя, которая даст вам возможность приобретать товары со скидкой. Информация об этих товарах представлена в каталоге «Лента». Каталог обновляется, как правило, один раз в две недели.
+    magnit_info_ru:
+      debug: true
+      base_url: http://magnit-info.ru/buyers/magazines/
+      name: Магнит
+      name_slugified: magnit
+      logo_path: ./scraper/magnit_logo_large.png
+      logo_width: 700
+      page_width: 900
+      description: <b>«Магнит»</b> — одна из крупнейших и динамично развивающихся сетей розничной торговли в России. Основанная в 1993 году в Санкт-Петербурге, компания на протяжении 20-ти лет является одним из лидеров российского ритейла. Гипермаркеты Лента предлагают покупателям товары, цены на которые ниже среднерыночных не менее чем на 5%. В каждом гипермаркете «Лента» вы можете приобрести карту покупателя, которая даст вам возможность приобретать товары со скидкой. Информация об этих товарах представлена в каталоге «Лента». Каталог обновляется, как правило, один раз в две недели.

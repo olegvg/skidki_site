@@ -1,0 +1,23 @@
+{% macro small_network_pic_n_text(picture_url, link_url, network) -%}
+  <div class="col-lg-4 col-sm-4 hero-feature text-center">
+    <div class="thumbnail">
+      <a href="{{ link_url }}" class="link-netlogo">
+         <img src="{{ picture_url }}" alt="{{ network.name }}" style="width: auto; max-width: 100%;">
+      </a>
+      <div class="caption prod-caption">
+        {% autoescape false %}
+          <h4><a href="{{ link_url }}">{{ network.name }}</a></h4>
+          {% if network.description %}<a href="{{ link_url }}" class="link-paragraph"><p>{{ network.description|truncate(200, False) }}</p></a>{% endif %}
+        {% endautoescape %}
+      </div>
+    </div>
+  </div>
+{%- endmacro %}
+
+{% macro city_text(city_name, link) -%}
+  <div class="col-lg-4 col-md-4 col-sm-4 hero-feature text-center" itemscope itemtype="http://schema.org/Place">
+    <div class="thumbnail">
+      <h3 style="margin-top: 10px"><a href="{{ link }}" style="text-decoration: none"><p itemprop="name">{{ city_name }}</p></a></h3>
+    </div>
+  </div>
+{%- endmacro %}

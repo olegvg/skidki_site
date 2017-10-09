@@ -1,0 +1,19 @@
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Навигация</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand visible-xs" href="{{ url_for('base.root') }}">Скидки! Скидки!</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ url_for('base.nets') }}" {% if active_navbar == 'networks' %}class="active"{% endif %}>Магазины</a></li>
+        <li><a href="{{ url_for('base.cities') }}" {% if active_navbar == 'cities' %}class="active"{% endif %}>Города</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

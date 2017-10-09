@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      {%- set earliest_action = (net_mod_dates.values()|sort)[0].strftime('%Y-%m-%d') %}
+      <url>
+        <loc>http://skidkaskidok.ru{{ url_for('base.nets') }}</loc>
+        <lastmod>{{ earliest_action }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+      </url>
+      <url>
+        <loc>http://skidkaskidok.ru{{ url_for('base.cities') }}</loc>
+        <lastmod>{{ earliest_action }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+      </url>
+  {%- for city in cities %}
+      <url>
+        <loc>http://skidkaskidok.ru{{ url_for('base.city_network', city_name_slugified=city.name_slugified) }}</loc>
+        <lastmod>{{ earliest_action }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+      </url>
+  {%- endfor %}
+  {%- for net in net_mod_dates %}
+      <url>
+        <loc>http://skidkaskidok.ru{{ url_for('base.network', net_name_slugified=net) }}</loc>
+        <lastmod>{{ net_mod_dates[net].strftime('%Y-%m-%d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+      </url>
+  {%- endfor %}
+  {%- for action in net_actions -%}
+    {% for city in action.cities %}
+      <url>
+        <loc>http://skidkaskidok.ru{{ url_for('base.catalogue', net_name_slugified=action.network.name_slugified, city_name_slugified=city.name_slugified) }}</loc>
+        <lastmod>{{ action.date_from.strftime('%Y-%m-%d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+      </url>
+    {%- endfor -%}
+  {%- endfor %}
+</urlset>

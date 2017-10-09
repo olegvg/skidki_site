@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% from 'macroses.html' import city_text %}
+
+{% block head_description -%}
+  {{ network.name }} в
+  {%- if cat.cities[0]|length > 1 %} городах {% else %}городе {% endif -%}
+  {{ cat.cities|map(attribute='name')|join(', ') }}
+{%- endblock %}
+{% block head_keywords -%}
+  {{ network.name }}, {{ cat.cities|map(attribute='name')|join(', ') }}
+{%- endblock %}
+{% block head_title -%}
+  {{ network.name }} в
+  {%- if cat.cities[0]|length > 1 %} городах {% else %}городе {% endif -%}
+  {{ cat.cities|map(attribute='name')|join(', ') }}
+{%- endblock %}
+
+{% block breadcrumb %}
+  <li><a href="{{ url_for('base.root') }}" class="fa fa-home"></a></li>
+  <li><a href="{{ url_for('base.network', net_name_slugified=network.name_slugified) }}">{{ network.name|upper }}</a></li>
+  <li class="active">{{ city.name|upper }}</li>
+{% endblock %}
+
+{% block main_row %}
+  <div class="col-lg-8 col-md-7 col-sm-12">
+    <div class="col-lg-12 col-sm-12">
+      <span class="compact-title">
+        КАТАЛОГ АКЦИЙ &laquo;{{ network.name|upper }}&raquo; &ndash; {{ cat.cities[0].name|upper }}<br>
+      </span>
+      <h4 class="main-title">
+        {{ cat.cities|map(attribute='name')|join(', ') }} <br>
+        с {{ cat.date_from|dateformat(format='d MMMM y') }} по {{ cat.date_to|dateformat(format='d MMMM y') }}
+        <span class="sub-title">
+          {% if check_date_in_future(cat.date_from) %}
+            (ещё не началась)
+          {% else %}
+            (ещё {{ cat.date_to|timedeltaformat(granularity='day') }})
+          {% endif %}
+        </span>
+      </h4>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 hero-feature blog-detail">
+      <!-- carousel for large, medium & small devices --> {# http://jsfiddle.net/S2rnm/795/ #}
+      {% set lg_md_divider = 2 %}
+      <div id="carousel-lg-md" class="carousel slide visible-sm visible-md visible-lg">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          {% for group in cat.imageset|batch(lg_md_divider) -%}
+            <li data-target="#carousel-lg-md" data-slide-to="{{ loop.index0 }}"{% if loop.index0 == 0 %} class="active"{% endif %}></li>
+          {% endfor %}
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          {% for group in cat.imageset|batch(lg_md_divider) -%}
+            {%- set group_index0 = loop.index0 -%}
+            <!-- Slide -->
+            <div class="item{% if group_index0 == 0 %} active{% endif %}">
+              <div class="row">
+                {% for item in group -%}
+                  <div class="col-xs-6">
+                    <img src="{{ url_for('base.cat_image', cat_oid=cat.id, page = group_index0 * lg_md_divider + loop.index) }}" alt="Страница каталога не существует"/>
+                    <div class="carousel-caption">Страница {{ group_index0 * lg_md_divider + loop.index }}</div>
+                  </div>
+                {%- endfor %}
+              </div>
+            </div>
+          {%- endfor %}
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-lg-md" data-slide="prev">
+          <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-lg-md" data-slide="next">
+          <span class="icon-next"></span>
+        </a>
+      </div>
+
+      <!-- carousel for xtra-small devices -->
+      {%- set xs_divider = 1 %}
+      <div id="carousel-xs" class="carousel slide visible-xs">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          {% for group in cat.imageset|batch(xs_divider) -%}
+            <li data-target="#carousel-xs" data-slide-to="{{ loop.index0 }}"{% if loop.index0 == 0 %} class="active"{% endif %}></li>
+          {% endfor %}
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          {% for group in cat.imageset|batch(xs_divider) -%}
+            {%- set group_index0 = loop.index0 -%}
+            <!-- Slide -->
+            <div class="item{% if group_index0 == 0 %} active{% endif %}">
+              <div class="row">
+                {% for item in group -%}
+                  <div class="col-xs-12">
+                    <img src="{{ url_for('base.cat_image', cat_oid=cat.id, page = group_index0 * xs_divider + loop.index) }}" alt="Страница каталога не существует"/>
+                    <div class="carousel-caption">Страница {{ group_index0 * xs_divider + loop.index }}</div>
+                  </div>
+                {%- endfor %}
+              </div>
+            </div>
+          {%- endfor %}
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-xs" data-slide="prev">
+          <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-xs" data-slide="next">
+          <span class="icon-next"></span>
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+  <script>
+    $('.carousel.slide').carousel();
+  </script>
+{% endblock %}

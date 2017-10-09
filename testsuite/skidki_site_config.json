@@ -1,0 +1,15 @@
+{
+  "DEBUG": true,
+  "LOCAL_TZ": "Europe/Moscow",
+  "SECRET_KEY": "BswrAEWplJEmExmaYkV9dJkwZXhcesdex5ALHZfEAOcLz8SoEEMVFfIlD+CyTgTeM1VgFHF44g24E2jFwSNQd6sINvCCCB",
+  "CSRF_ENABLED": true,
+  "REMEMBER_COOKIE_NAME": "MediaEnergyDevel",
+  "SESSION_PROTECTION": "basic",
+  "MONGODB_SETTINGS": {
+    "host": "127.0.0.1",
+    "port": "",
+    "username": "",
+    "password": "",
+    "db": "skidki"
+  }
+}

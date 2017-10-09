@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% from 'macroses.html' import city_text %}
+{% set active_navbar = 'cities' %}
+{% block main_row %}
+  {% for item in city_objs %}
+    {{ city_text(
+      item.name,
+      url_for('base.city_network', city_name_slugified=item.name_slugified)
+    ) }}
+  {% endfor %}
+{% endblock %}
+
+{% block head_description -%}
+  {%- if city_objs|length > 1 %}в городах {% else %}городе {% endif -%}
+  {{ city_objs|map(attribute='name')|join(', ') }}
+{%- endblock %}
+{% block head_keywords -%}
+  {{ city_objs|map(attribute='name')|join(', ') }}
+{%- endblock %}
+{% block head_title -%}
+  {%- if city_objs|length > 1 %}в городах {% else %}городе {% endif -%}
+  {{ city_objs|map(attribute='name')|join(', ') }}
+{%- endblock %}
+
+{% block breadcrumb %}
+  <li><a href="{{ url_for('base.root') }}" class="fa fa-home"></a></li>
+  <li class="active">ГОРОДА</li>
+{% endblock %}

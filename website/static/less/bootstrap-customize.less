@@ -1,0 +1,35 @@
+@import "../lib/bootstrap/less/bootstrap.less";
+@font-family-base: "Beeline", "Open Sans", Helvetica, Arial, sans-serif;
+@font-size-base: 16px;
+@icon-font-path: "../lib/bootstrap/fonts/";
+
+@state-warning-base:             rgb(255,182,18);
+@state-warning-text:             darken(spin(@state-warning-base, -10), 10%);
+@state-warning-bg:               darken(spin(@state-warning-base, -10), 10%);
+@state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
+
+
+//Uncomment it in case of navbar-fixed-top
+//body {
+//  padding-top: @navbar-height + 5px;
+//}
+//.navbar-fixed-top {
+//    min-height: @navbar-height;
+//}
+
+
+// This piece of style adresses issue https://github.com/twbs/bootstrap/issues/9319 with margin of horizontal forms
+.form-horizontal .form-group {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.beeline-color-bg {
+    background-color:rgb(255,182,18);
+}
+
+.beeline-color-fg {
+    color:rgb(0,0,0);
+    font-weight:bold;
+}
+

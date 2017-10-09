@@ -1,0 +1,14 @@
+uwsgi:
+  socket: /opt/sock/skidki_site.sock
+  chmod-socket: 660
+
+  pythonpath: /opt/apps/skidki_site
+  module: website:app
+
+  logger: file:/opt/logs/skidki_site/app.log
+  req-logger: file:/opt/logs/skidki_site/uwsgi_access.log
+  log-format: %(addr) - [%(ltime)] "%(method) %(uri) %(proto)" %(status) %(size) "%(referer)" "%(uagent)"
+
+  processes: 4
+  threads: 1
+  # stats: 127.0.0.1:9480

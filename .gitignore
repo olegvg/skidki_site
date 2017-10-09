@@ -1,0 +1,30 @@
+# Mac OS X
+.DS_Store
+.DS_Store?
+
+sandbox/
+
+# Python
+# Distribution / packaging
+.Python
+*.egg
+*.egg-info
+*.pyc
+*.pyo
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# PyCharm
+.idea
+
+# node-js
+npm-debug.log

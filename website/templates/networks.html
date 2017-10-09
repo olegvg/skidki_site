@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% from 'macroses.html' import small_network_pic_n_text %}
+{% set active_navbar = 'networks' %}
+{% block main_row %}
+  {% if g.head_article %}
+    {% autoescape not g.head_article.is_unescaped %}
+      <div class="col-lg-12 col-md-12 col-sm-12" itemscope itemtype="https://schema.org/WebPage">
+        <div class="col-lg-9 col-md-9 col-sm-9">
+          {% if g.head_article.header %}
+            <span class="title" itemprop="headline">{{ g.head_article.header|upper }}</span>
+          {% endif %}
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-9 col-md-9 col-sm-9" style="margin-bottom: 10px">
+              <p itemprop="text">{{ g.head_article.body }}</p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
+              {# advertisement #}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endautoescape %}
+ {% endif %}
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    {% for network in g.network_objs %}
+      {{ small_network_pic_n_text(
+        url_for('base.net_image', net_name_slugified=network.name_slugified),
+        url_for('base.network', net_name_slugified=network.name_slugified),
+        network)
+      }}
+    {% endfor %}
+  </div>
+{% endblock %}
+
+{% block head_description -%}
+  {{ g.network_objs|map(attribute='name')|join(', ') }}
+{%- endblock %}
+{% block head_keywords -%}
+  {{ g.network_objs|map(attribute='name')|join(', ') }}
+{%- endblock %}
+{% block head_title -%}
+  {{ g.network_objs|map(attribute='name')|join(', ') }}
+{%- endblock %}
+
+{% block breadcrumb %}
+  <li><a href="{{ url_for('base.root') }}" class="fa fa-home"></a></li>
+  <li class="active">МАГАЗИНЫ</li>
+{% endblock %}

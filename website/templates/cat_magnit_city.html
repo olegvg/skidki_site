@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% from 'macroses.html' import city_text %}
+
+{% block head_description -%}
+  {{ network.name }} в
+  {%- if cat.cities[0]|length > 1 %} городах {% else %}городе {% endif -%}
+  {{ cat.cities|map(attribute='name')|join(', ') }}
+{%- endblock %}
+{% block head_keywords -%}
+  {{ network.name }}, {{ cat.cities|map(attribute='name')|join(', ') }}
+{%- endblock %}
+{% block head_title -%}
+  {{ network.name }} в
+  {%- if cat.cities[0]|length > 1 %} городах {% else %}городе {% endif -%}
+  {{ cat.cities|map(attribute='name')|join(', ') }}
+{%- endblock %}
+
+{% block breadcrumb %}
+  <li><a href="{{ url_for('base.root') }}" class="fa fa-home"></a></li>
+  <li><a href="{{ url_for('base.network', net_name_slugified=network.name_slugified) }}">{{ network.name|upper }}</a></li>
+  <li class="active">{{ city.name|upper }}</li>
+{% endblock %}
+
+{% block main_row %}
+  <div class="col-lg-8 col-md-7 col-sm-12">
+    <div class="col-lg-12 col-sm-12">
+      <span class="compact-title">
+        КАТАЛОГ АКЦИЙ &laquo;{{ network.name|upper }}&raquo; &ndash; {{ cat.cities[0].name|upper }}<br>
+      </span>
+      <h4 class="main-title">
+        {{ cat.cities|map(attribute='name')|join(', ') }} <br>
+        с {{ cat.date_from|dateformat(format='d MMMM y') }} по {{ cat.date_to|dateformat(format='d MMMM y') }}
+        <span class="sub-title">
+          {% if check_date_in_future(cat.date_from) %}
+            (ещё не началась)
+          {% else %}
+            (ещё {{ cat.date_to|timedeltaformat(granularity='day') }})
+          {% endif %}
+        </span>
+      </h4>
+    </div>
+  </div>
+  {% set lg_md_divider = 2 %}
+  {%- set xs_divider = 1 %}
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 hero-feature blog-detail">
+      <ul class="nav nav-pills" role="tablist">
+        {% for image_pages in cat.imageset_list %}
+          <li role="presentation" {% if loop.first %} class="active"{% endif %}><a href="#pane-{{ loop.index }}" aria-controls="pane-{{ loop.index }}" role="tab" data-toggle="tab">Каталог № {{ loop.index }}</a></li>
+        {% endfor %}
+      </ul>
+      <div class="tab-content">
+        {% for image_pages in cat.imageset_list %}
+          {% set imageset_idx = loop.index %}
+          <div role="tabpanel" class="tab-pane {% if loop.first %} active{% endif %}" id="pane-{{ loop.index }}">
+            <!-- carousel for large, medium & small devices --> {# http://jsfiddle.net/S2rnm/795/ #}
+            <div id="carousel-lg-md-{{ imageset_idx }}" class="carousel slide visible-sm visible-md visible-lg">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                {% for group in image_pages.imageset|batch(lg_md_divider) -%}
+                  <li data-target="#carousel-lg-md-{{ imageset_idx }}" data-slide-to="{{ loop.index0 }}"{% if loop.index0 == 0 %} class="active"{% endif %}></li>
+                {% endfor %}
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                {% for group in image_pages.imageset|batch(lg_md_divider) -%}
+                  {%- set group_index0 = loop.index0 -%}
+                  <!-- Slide -->
+                  <div class="item{% if group_index0 == 0 %} active{% endif %}">
+                    <div class="row">
+                      {% for item in group -%}
+                        <div class="col-xs-6">
+                          <img src="{{ url_for('base.magnit_cat_image', cat_oid=cat.id, cat_number = imageset_idx, page = group_index0 * lg_md_divider + loop.index) }}" alt="Страница каталога не существует"/>
+                          <div class="carousel-caption">Страница {{ group_index0 * lg_md_divider + loop.index }}</div>
+                        </div>
+                      {%- endfor %}
+                    </div>
+                  </div>
+                {%- endfor %}
+              </div>
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-lg-md-{{ imageset_idx }}" data-slide="prev">
+                <span class="icon-prev"></span>
+              </a>
+              <a class="right carousel-control" href="#carousel-lg-md-{{ imageset_idx }}" data-slide="next">
+                <span class="icon-next"></span>
+              </a>
+            </div>
+
+            <!-- carousel for xtra-small devices -->
+            <div id="carousel-xs-{{ imageset_idx }}" class="carousel slide visible-xs">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                {% for group in image_pages.imageset|batch(xs_divider) -%}
+                  <li data-target="#carousel-xs-{{ imageset_idx }}" data-slide-to="{{ loop.index0 }}"{% if loop.index0 == 0 %} class="active"{% endif %}></li>
+                {% endfor %}
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                {% for group in image_pages.imageset|batch(xs_divider) -%}
+                  {%- set group_index0 = loop.index0 -%}
+                  <!-- Slide -->
+                  <div class="item{% if group_index0 == 0 %} active{% endif %}">
+                    <div class="row">
+                      {% for item in group -%}
+                        <div class="col-xs-12">
+                          <img src="{{ url_for('base.magnit_cat_image', cat_oid=cat.id, cat_number = imageset_idx, page = group_index0 * xs_divider + loop.index) }}" alt="Страница каталога не существует"/>
+                          <div class="carousel-caption">Страница {{ group_index0 * xs_divider + loop.index }}</div>
+                        </div>
+                      {%- endfor %}
+                    </div>
+                  </div>
+                {%- endfor %}
+              </div>
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-xs-{{ imageset_idx }}" data-slide="prev">
+                <span class="icon-prev"></span>
+              </a>
+              <a class="right carousel-control" href="#carousel-xs-{{ imageset_idx }}" data-slide="next">
+                <span class="icon-next"></span>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <script>
+    $('.carousel.slide').carousel();
+  </script>
+{% endblock %}
